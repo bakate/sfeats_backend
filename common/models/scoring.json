@@ -1,0 +1,38 @@
+{
+  "name": "scoring",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "rating": {
+      "type": "number",
+      "required": true
+    },
+    "comments": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "restaurant": {
+      "type": "belongsTo",
+      "model": "restaurant",
+      "foreignKey": "restaurantId",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "client": {
+      "type": "belongsTo",
+      "model": "client",
+      "foreignKey": "clientId",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [ ],
+  "methods": {}
+}

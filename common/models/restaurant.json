@@ -1,0 +1,80 @@
+{
+  "name": "restaurant",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "lat": {"type": "number", "required": true},
+      "lng": {"type": "number", "required": true}
+    },
+    "image": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "scorings": {
+      "type": "hasMany",
+      "model": "scoring",
+      "foreignKey": "restaurantId",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "client": {
+      "type": "belongsTo",
+      "model": "client",
+      "foreignKey": "userId",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": [
+        "deleteById",
+        "updateAttributes"
+      ]
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,14 @@
+{
+  "db": {
+    "host": "",
+    "port": "",
+    "database": "",
+    "password": "",
+    "name": "db",
+    "url": "mongodb+srv://souley:2u8VImgLB22Xk5wc@cluster1papi.btzfi.mongodb.net/restaurants?retryWrites=true&w=majority",
+    "user": "",
+    "useNewUrlParser": true,
+    "useUnifiedTopology": true,
+    "connector": "mongodb"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "client",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "scorings": {
+      "type": "hasMany",
+      "model": "scoring",
+      "foreignKey": "clientId",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "restaurants": {
+      "type": "hasMany",
+      "model": "restaurant",
+      "foreignKey": "userId",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": ["patchAttributes", "deleteById"]
+    }
+  ],
+  "methods": {}
+}
