@@ -5,7 +5,7 @@
     "database": "",
     "password": "",
     "name": "db",
-    "url": "`${process.env.MONGO_URL}`",
+    "url": "${process.env.MONGO_URL}",
     "user": "",
     "useNewUrlParser": true,
     "useUnifiedTopology": true,
