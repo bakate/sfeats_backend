@@ -1,0 +1,14 @@
+{
+  "db": {
+    "host": "",
+    "port": "",
+    "database": "",
+    "password": "",
+    "name": "db",
+    "url": "`${process.env.MONGO_URL}`",
+    "user": "",
+    "useNewUrlParser": true,
+    "useUnifiedTopology": true,
+    "connector": "mongodb"
+  }
+}

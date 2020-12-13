@@ -4,7 +4,7 @@ module.exports = async address => {
   const { data } = await axios.get(
     `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
       address
-    )}&key=AIzaSyDRUihPvIywfsjtQuuRTdwYzcqRXMzEMqI`
+    )}&key=${process.env.GOOGLE_API_GEOCODING}`
   );
   console.log(data);
   if (!data || data.status === 'ZERO_RESULTS') {
